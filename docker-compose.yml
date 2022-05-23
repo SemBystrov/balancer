@@ -1,0 +1,17 @@
+version: '3'
+services:
+  hello:
+    build: hello
+    ports:
+    - "5001:5000"
+  world:
+    build: world
+    ports:
+    - "5002:5000"
+  nginx:
+    build: nginx
+    ports:
+    - "8080:80"
+    depends_on:
+      - hello
+      - world
